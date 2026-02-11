@@ -1,4 +1,4 @@
-FROM golang:1.22-alpine AS builder
+FROM golang:1.22-alpine3.19 AS builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN go mod tidy
 
 RUN go build -o workTest
 
-FROM debian:bookworm-slim
+FROM debian:bookworm-20240110-slim
 
 WORKDIR /app
 
